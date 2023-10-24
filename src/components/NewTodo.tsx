@@ -11,15 +11,18 @@ const NewTodo: React.FC<NewTodoProps> = (props) => {
   const todoSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     const enteredText = textInputRef.current!.value;
+    if (enteredText === '') return;
     props.onAddTodo(enteredText);
+    textInputRef.current!.value = '';
   };
 
   return (
     <form onSubmit={todoSubmitHandler}>
-      <div>
-        <label htmlFor='todo-text'>Todo Text</label>
-        <input type='text' id='todo-text' ref={textInputRef} />
-      </div>
+      <input
+        type='text'
+        placeholder='Create a new todo...'
+        ref={textInputRef}
+      />
       <Button type='submit'>ADD TODO</Button>
     </form>
   );
