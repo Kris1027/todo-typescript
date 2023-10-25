@@ -4,6 +4,18 @@ import { Todo } from './todo.models';
 
 import NewTodo from './components/NewTodo';
 import TodoList from './components/TodoList';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 1024px;
+  background-color: gray;
+`;
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -22,10 +34,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <NewTodo onAddTodo={todoAddHandler} />
       <TodoList items={todos} onDeleteTodo={todoDeleteHandler} />
-    </>
+    </Wrapper>
   );
 };
 

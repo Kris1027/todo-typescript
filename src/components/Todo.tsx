@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Button from '../ui/Button';
 
-const TodoText = styled.li`
+const TodoTask = styled.li`
   display: flex;
   justify-content: space-between;
   background-color: black;
@@ -18,12 +18,14 @@ interface TodoProps {
 
 const Todo: React.FC<TodoProps> = (props) => {
   return (
-    <TodoText>
+    <TodoTask>
       <span>{props.todo.text}</span>
-      <Button onClick={props.onDeleteTodo.bind(null, props.todo.id)}>
-        DELETE
-      </Button>
-    </TodoText>
+      <div>
+        <Button onClick={props.onDeleteTodo.bind(null, props.todo.id)}>
+          DELETE
+        </Button>
+      </div>
+    </TodoTask>
   );
 };
 

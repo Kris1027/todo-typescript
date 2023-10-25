@@ -3,7 +3,8 @@ import Todo from './Todo';
 
 const ListOfTodos = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   list-style: none;
 `;
