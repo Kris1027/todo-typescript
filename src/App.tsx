@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { Todo } from './todo.models';
 
+import { GlobalStyle } from './style/GlobalStyle';
+
 import NewTodo from './components/NewTodo';
 import TodoList from './components/TodoList';
 import styled from 'styled-components';
@@ -35,6 +37,7 @@ const App: React.FC = () => {
 
   return (
     <Wrapper>
+      <GlobalStyle />
       <NewTodo onAddTodo={todoAddHandler} />
       <TodoList items={todos} onDeleteTodo={todoDeleteHandler} />
     </Wrapper>
